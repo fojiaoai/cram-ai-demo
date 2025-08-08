@@ -1,0 +1,281 @@
+{
+  "common": {
+    "appName": "Cram AI",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "export": "Export",
+    "import": "Import",
+    "share": "Share",
+    "copy": "Copy",
+    "download": "Download",
+    "upload": "Upload",
+    "refresh": "Refresh",
+    "retry": "Retry"
+  },
+  "nav": {
+    "home": "Home",
+    "myCourses": "My Courses",
+    "exam": "Exam",
+    "explore": "Explore",
+    "community": "Community",
+    "creators": "Creators",
+    "searchPlaceholder": "Search content, terms or analysis...",
+    "upgradePremium": "Upgrade to Premium",
+    "dashboard": "Dashboard",
+    "questionBank": "Question Bank",
+    "analysis": "Analysis",
+    "settings": "Settings",
+    "profile": "Profile",
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register"
+  },
+  "landing": {
+    "locale": "en",
+    "hero": {
+      "title": "Transform Any Content into",
+      "titleHighlight": "Knowledge and Insights",
+      "subtitle": "AI-powered content analysis platform that extracts key insights from videos, documents, and web content in seconds",
+      "cta": "Get Started Free",
+      "demo": "Watch Demo"
+    },
+    "features": {
+      "title": "Features",
+      "subtitle": "Powerful AI-driven content analysis capabilities",
+      "multiSource": {
+        "title": "Multi-Source Analysis",
+        "description": "Analyze videos, documents, images, and web content from multiple sources with unified AI processing"
+      },
+      "aiAnalysis": {
+        "title": "AI-Powered Insights",
+        "description": "Advanced natural language processing and machine learning algorithms extract meaningful insights automatically"
+      },
+      "dashboard": {
+        "title": "Intelligent Dashboard",
+        "description": "Comprehensive analytics dashboard with real-time insights, progress tracking, and personalized recommendations"
+      },
+      "realTime": {
+        "title": "Real-time Processing",
+        "description": "Get instant analysis results with our high-performance AI processing pipeline"
+      },
+      "secure": {
+        "title": "Secure & Private",
+        "description": "Enterprise-grade security with end-to-end encryption and privacy protection"
+      },
+      "export": {
+        "title": "Export & Share",
+        "description": "Export analysis results in multiple formats and share insights with your team"
+      }
+    },
+    "stats": {
+      "users": "Active Users",
+      "content": "Content Analyzed",
+      "insights": "AI Insights Generated"
+    },
+    "benefits": {
+      "saveTime": "Save 80% analysis time",
+      "extractInsights": "Extract key insights automatically",
+      "supportFormats": "Support 20+ file formats",
+      "aiAnalysis": "AI-powered deep analysis",
+      "exportShare": "Export and share results"
+    },
+    "testimonials": {
+      "title": "Testimonials",
+      "subtitle": "Trusted by thousands of users worldwide"
+    },
+    "demo": {
+      "title": "Live Demo",
+      "subtitle": "See Cram AI in action",
+      "description": "Experience the power of AI-driven content analysis with our interactive demo"
+    },
+    "cta": {
+      "title": "Ready to Transform Your Content Analysis?",
+      "subtitle": "Join thousands of users who are already saving time and extracting valuable insights with Cram AI",
+      "button": "Start Free Trial",
+      "noCreditCard": "No credit card required • Free 14-day trial"
+    },
+    "pricing": {
+      "title": "Pricing"
+    }
+  },
+  "dashboard": {
+    "welcome": "Welcome back",
+    "searchPlaceholder": "Search content, insights, or documents...",
+    "viewAll": "View All",
+    "userType": {
+      "student": "Student",
+      "professional": "Professional"
+    },
+    "welcomeMessage": {
+      "student": "Continue your learning journey with AI-powered insights and personalized recommendations",
+      "professional": "Analyze content efficiently and extract valuable business insights with advanced AI tools"
+    },
+    "stats": {
+      "learningHours": "Learning Hours",
+      "completedCourses": "Completed Courses",
+      "currentStreak": "Current Streak",
+      "aiInsights": "AI Insights",
+      "analysisHours": "Analysis Hours",
+      "completedProjects": "Completed Projects",
+      "thisMonth": "this month"
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "uploadFile": "Upload File",
+      "uploadFileDesc": "Upload documents, images, or videos for AI analysis",
+      "analyzeVideo": "Analyze Video",
+      "analyzeVideoDesc": "Extract insights from YouTube, Vimeo, or local videos",
+      "webContent": "Web Content",
+      "webContentDesc": "Analyze articles, blogs, and web pages instantly",
+      "aiAnalysis": "AI Analysis",
+      "aiAnalysisDesc": "Access intelligent question bank and testing system"
+    },
+    "recentContent": {
+      "title": "Recent Content"
+    },
+    "insights": {
+      "title": "AI Insights",
+      "student": {
+        "recommendation": "Study Recommendation",
+        "recommendationDesc": "Focus on calculus fundamentals to improve your math performance",
+        "progress": "Learning Progress",
+        "progressDesc": "You're 85% through your current learning path. Keep it up!",
+        "reminder": "Study Reminder",
+        "reminderDesc": "Don't forget your English listening practice session today"
+      },
+      "professional": {
+        "trend": "Industry Trend",
+        "trendDesc": "AI adoption in your industry increased by 45% this quarter",
+        "skill": "Skill Development",
+        "skillDesc": "Consider learning machine learning to stay competitive",
+        "opportunity": "New Opportunity",
+        "opportunityDesc": "3 new projects match your expertise and interests"
+      }
+    },
+    "progress": {
+      "title": "Progress Overview",
+      "completion": "Overall Completion",
+      "nextGoal": "Next Goal",
+      "accuracy": "Accuracy Rate"
+    },
+    "calendar": {
+      "title": "Upcoming Events"
+    }
+  },
+  "aiAnalysis": {
+    "analyzing": "AI is analyzing your content...",
+    "timeEstimate": "This usually takes 30-60 seconds",
+    "error": {
+      "title": "Analysis Failed",
+      "retry": "Try Again"
+    },
+    "results": {
+      "title": "Analysis Results"
+    },
+    "contentType": {
+      "file": "File",
+      "video": "Video",
+      "web": "Web Page"
+    },
+    "tabs": {
+      "summary": "Summary",
+      "insights": "Insights",
+      "topics": "Topics",
+      "sentiment": "Sentiment",
+      "recommendations": "Recommendations"
+    },
+    "summary": {
+      "title": "AI Summary",
+      "keyInsights": "Key Insights",
+      "keywords": "Keywords"
+    },
+    "insights": {
+      "questions": "Generated Questions",
+      "entities": "Key Entities",
+      "entityName": "Entity",
+      "entityType": "Type",
+      "mentions": "Mentions"
+    },
+    "topics": {
+      "mainTopics": "Main Topics",
+      "confidence": "Confidence",
+      "readability": "Readability Analysis",
+      "readabilityScore": "Readability Score",
+      "avgSentenceLength": "Avg. Sentence Length",
+      "complexWords": "Complex Words",
+      "words": "words"
+    },
+    "sentiment": {
+      "overall": "Overall Sentiment",
+      "score": "Sentiment Score",
+      "breakdown": "Sentiment Breakdown",
+      "positive": "Positive",
+      "neutral": "Neutral",
+      "negative": "Negative"
+    },
+    "recommendations": {
+      "title": "AI Recommendations",
+      "copyAll": "Copy All",
+      "download": "Download Report"
+    },
+    "start": {
+      "title": "Ready for AI Analysis",
+      "description": "Upload content or provide a URL to get started with intelligent analysis and insights",
+      "button": "Start Analysis"
+    },
+    "stages": {
+      "preparing": "Preparing analysis...",
+      "processing": "Processing content...",
+      "analyzing": "AI analyzing content...",
+      "extracting": "Extracting insights...",
+      "generating": "Generating report...",
+      "complete": "Analysis complete!"
+    }
+  },
+  "questionBank": {
+    "title": "Intelligent Question Bank",
+    "subtitle": "AI-powered personalized learning and assessment platform",
+    "features": {
+      "civilService": "Civil Service Exam Bank",
+      "knowledgeTest": "Subject Knowledge Assessment",
+      "smartAnalysis": "Smart Answer Analysis",
+      "progressTracking": "Learning Progress Tracking"
+    },
+    "stats": {
+      "totalQuestions": "Total Questions",
+      "completedTests": "Completed Tests",
+      "averageScore": "Average Score",
+      "studyHours": "Study Hours"
+    },
+    "actions": {
+      "startTest": "Start Intelligent Test",
+      "viewStats": "View Statistics",
+      "viewRules": "Question Bank Overview"
+    }
+  },
+  "exam": {
+    "title": "Exam Interface",
+    "timeRemaining": "Time Remaining",
+    "question": "Question",
+    "of": "of",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "review": "Review",
+    "finish": "Finish Exam"
+  }
+}

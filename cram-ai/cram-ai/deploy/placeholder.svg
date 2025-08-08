@@ -1,0 +1,7 @@
+<svg width="100%" height="100%" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#f0f0f0"/>
+  <path d="M160,120 L240,120 L240,280 L160,280 Z" fill="#e0e0e0"/>
+  <path d="M120,160 L280,160 L280,240 L120,240 Z" fill="#e0e0e0"/>
+  <circle cx="200" cy="200" r="60" fill="#d0d0d0"/>
+  <text x="50%" y="50%" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" dominant-baseline="middle" fill="#a0a0a0">Placeholder</text>
+</svg>

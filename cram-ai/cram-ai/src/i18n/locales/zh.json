@@ -1,0 +1,391 @@
+{
+  "webParser": {
+    "locale": "zh",
+    "analyzing": "正在分析网页内容",
+    "timeEstimate": "这可能需要一点时间",
+    "stages": {
+      "fetching": "获取网页...",
+      "extracting": "提取内容...",
+      "parsing": "解析HTML结构...",
+      "analyzing": "分析内容...",
+      "summarizing": "生成摘要...",
+      "complete": "分析完成！"
+    },
+    "error": {
+      "title": "分析失败",
+      "retry": "重试"
+    },
+    "tabs": {
+      "summary": "摘要",
+      "content": "内容",
+      "links": "链接",
+      "insights": "洞察"
+    },
+    "summary": {
+      "title": "网页内容摘要",
+      "keyPoints": "要点",
+      "keywords": "关键词"
+    },
+    "content": {
+      "download": "下载内容"
+    },
+    "links": {
+      "internal": "内部链接",
+      "external": "外部链接"
+    },
+    "insights": {
+      "readability": "可读性评分",
+      "stats": "内容统计",
+      "wordCount": "字数",
+      "imageCount": "图片数"
+    },
+    "start": {
+      "title": "分析网页内容",
+      "description": "我们的AI将提取关键洞察，分析内容结构，并提供网页的全面摘要。",
+      "button": "开始分析"
+    }
+  },
+  "videoParser": {
+    "locale": "zh",
+    "analyzing": "正在分析视频内容",
+    "timeEstimate": "这可能需要一点时间",
+    "stages": {
+      "fetching": "获取视频信息...",
+      "extracting": "提取视频内容...",
+      "transcribing": "转录音频...",
+      "analyzing": "分析内容...",
+      "summarizing": "生成摘要...",
+      "complete": "分析完成！"
+    },
+    "error": {
+      "title": "分析失败",
+      "retry": "重试"
+    },
+    "tabs": {
+      "summary": "摘要",
+      "transcript": "转录文本",
+      "topics": "主题",
+      "insights": "洞察"
+    },
+    "summary": {
+      "title": "视频摘要",
+      "keyPoints": "要点"
+    },
+    "transcript": {
+      "download": "下载转录文本"
+    },
+    "topics": {
+      "mainTopics": "主要主题",
+      "keywords": "关键词"
+    },
+    "insights": {
+      "sentiment": "整体情感",
+      "engagement": "参与度",
+      "high": "高"
+    },
+    "start": {
+      "title": "分析视频内容",
+      "description": "我们的AI将提取关键洞察，转录内容，并提供全面的视频分析。",
+      "button": "开始分析"
+    }
+  },
+  "aiAnalysis": {
+    "locale": "zh",
+    "analyzing": "正在分析内容",
+    "timeEstimate": "这可能需要一点时间",
+    "stages": {
+      "preparing": "准备内容中...",
+      "processing": "处理内容中...",
+      "analyzing": "分析内容中...",
+      "extracting": "提取洞察中...",
+      "generating": "生成结果中...",
+      "complete": "分析完成！"
+    },
+    "error": {
+      "title": "分析失败",
+      "retry": "重试"
+    },
+    "tabs": {
+      "summary": "摘要",
+      "insights": "洞察",
+      "topics": "主题",
+      "sentiment": "情感",
+      "recommendations": "建议"
+    },
+    "summary": {
+      "title": "内容摘要",
+      "keyInsights": "关键洞察",
+      "keywords": "关键词"
+    },
+    "insights": {
+      "questions": "关键问题",
+      "entities": "实体",
+      "entityName": "名称",
+      "entityType": "类型",
+      "mentions": "提及次数"
+    },
+    "topics": {
+      "mainTopics": "主要主题",
+      "confidence": "置信度",
+      "readability": "可读性",
+      "readabilityScore": "评分",
+      "avgSentenceLength": "平均句长",
+      "complexWords": "复杂词汇",
+      "words": "词"
+    },
+    "sentiment": {
+      "overall": "整体情感",
+      "score": "评分",
+      "breakdown": "情感细分",
+      "positive": "积极",
+      "neutral": "中性",
+      "negative": "消极"
+    },
+    "recommendations": {
+      "title": "建议",
+      "copyAll": "复制全部",
+      "download": "下载"
+    },
+    "contentType": {
+      "file": "文档",
+      "video": "视频",
+      "web": "网页"
+    },
+    "results": {
+      "title": "分析结果"
+    },
+    "start": {
+      "title": "AI内容分析",
+      "description": "我们的高级AI将分析您的内容，提取关键洞察，并提供全面的建议。",
+      "button": "开始AI分析"
+    }
+  },
+  "common": {
+    "appName": "佛脚AI",
+    "loading": "加载中...",
+    "error": "错误",
+    "success": "成功",
+    "cancel": "取消",
+    "save": "保存",
+    "delete": "删除",
+    "edit": "编辑",
+    "view": "查看",
+    "download": "下载",
+    "share": "分享",
+    "search": "搜索",
+    "filter": "筛选",
+    "noResults": "未找到结果",
+    "tryAgain": "重试",
+    "learnMore": "了解更多"
+  },
+  "nav": {
+    "home": "Home",
+    "myCourses": "My Courses",
+    "exam": "Exam",
+    "explore": "Explore",
+    "community": "Community",
+    "creators": "Creators",
+    "searchPlaceholder": "搜索内容、词条或分析...",
+    "upgradePremium": "Upgrade to Premium",
+    "dashboard": "工作台",
+    "contentLibrary": "内容库",
+    "dataAnalysis": "数据分析",
+    "settings": "设置",
+    "profile": "个人资料",
+    "logout": "退出登录",
+    "login": "登录",
+    "classes": "课程",
+    "documents": "文档",
+    "bookmarks": "书签",
+    "messages": "消息",
+    "signOut": "退出登录"
+  },
+  "landing": {
+    "locale": "zh",
+    "hero": {
+      "title": "将任何内容",
+      "titleHighlight": "转化为知识和洞察",
+      "subtitle": "上传文件、粘贴链接或分析视频 - 获取由先进AI提供支持的全面分析。",
+      "cta": "立即开始",
+      "secondaryCta": "了解更多",
+      "demo": "观看演示"
+    },
+    "features": {
+      "title": "强大功能",
+      "subtitle": "分析和理解内容所需的一切",
+      "multiSource": {
+        "title": "多源输入",
+        "description": "上传文件、粘贴网址或分析来自流行平台的视频链接"
+      },
+      "aiPowered": {
+        "title": "AI驱动分析",
+        "description": "先进的AI模型提取关键洞察、摘要和可操作信息"
+      },
+      "aiAnalysis": {
+        "title": "AI驱动分析",
+        "description": "先进的AI模型提取关键洞察、摘要和可操作信息"
+      },
+      "dashboard": {
+        "title": "交互式仪表盘",
+        "description": "使用强大的组织工具在一处管理所有内容"
+      },
+      "realTime": {
+        "title": "实时处理",
+        "description": "通过详细的状态更新跟踪内容分析进度"
+      },
+      "secure": {
+        "title": "安全可靠",
+        "description": "企业级安全保障，保护您的敏感数据"
+      },
+      "export": {
+        "title": "导出与分享",
+        "description": "下载分析结果或直接与团队分享"
+      }
+    },
+    "pricing": {
+      "title": "价格方案"
+    },
+    "testimonials": {
+      "title": "用户评价",
+      "subtitle": "来自各行各业专业人士的真实反馈"
+    },
+    "demo": {
+      "title": "实时演示",
+      "subtitle": "体验 Cram AI 的强大功能",
+      "description": "看看我们的AI如何在几秒钟内将复杂内容转化为清晰、可执行的洞察。"
+    },
+    "cta": {
+      "title": "准备好转化您的内容了吗？",
+      "subtitle": "加入数千名专业人士的行列，使用佛脚AI在几秒钟内从内容中提取洞察，而不是几小时。",
+      "button": "免费开始使用",
+      "noCreditCard": "无需信用卡 • 免费套餐可用 • 随时取消"
+    },
+    "footer": {
+      "copyright": "© 2025 佛脚AI。保留所有权利。",
+      "terms": "服务条款",
+      "privacy": "隐私政策",
+      "features": "功能",
+      "api": "API",
+      "company": "公司",
+      "about": "关于我们",
+      "contact": "联系我们",
+      "careers": "招贤纳士",
+      "support": "支持",
+      "helpCenter": "帮助中心"
+    },
+    "stats": {
+      "users": "活跃用户",
+      "content": "处理内容",
+      "insights": "生成洞察"
+    },
+    "benefits": {
+      "saveTime": "节省90%内容审查时间",
+      "extractInsights": "自动提取关键洞察",
+      "supportFormats": "支持50+文件格式",
+      "aiAnalysis": "AI驱动深度分析",
+      "exportShare": "多格式导出分享"
+    }
+  },
+  "dashboard": {
+    "welcome": "欢迎回来，阿约",
+    "welcomeMessage": {
+      "student": "准备好继续您的学习之旅了吗？让我们分析一些内容，扩展您的知识。",
+      "professional": "准备好提升您的专业技能了吗？让我们深入一些有洞察力的内容分析。"
+    },
+    "searchPlaceholder": "搜索内容、洞察或分析...",
+    "userType": {
+      "student": "学生",
+      "professional": "专业人士"
+    },
+    "sidebar": {
+      "contentAnalysis": "内容分析",
+      "library": "资料库",
+      "insights": "洞察",
+      "progress": "进度"
+    },
+    "stats": {
+      "learningHours": "学习时长",
+      "analysisHours": "分析时长",
+      "completedCourses": "完成课程",
+      "completedProjects": "完成项目",
+      "currentStreak": "当前连续",
+      "aiInsights": "AI洞察",
+      "thisMonth": "本月",
+      "completed": "已完成",
+      "days": "天",
+      "generated": "已生成"
+    },
+    "quickActions": {
+      "title": "快速操作",
+      "uploadFile": "上传文件",
+      "uploadFileDesc": "分析文档、PDF和演示文稿",
+      "analyzeVideo": "分析视频",
+      "analyzeVideoDesc": "从YouTube、Vimeo视频中提取洞察",
+      "webContent": "网页内容",
+      "webContentDesc": "分析文章和网页",
+      "aiAnalysis": "AI分析",
+      "aiAnalysisDesc": "使用AI进行深度内容分析"
+    },
+    "recentContent": {
+      "title": "最近内容"
+    },
+    "insights": {
+      "title": "AI洞察",
+      "student": {
+        "recommendation": "学习建议",
+        "recommendationDesc": "本周专注于机器学习基础",
+        "progress": "进度更新",
+        "progressDesc": "您已完成当前课程的85%",
+        "reminder": "学习提醒",
+        "reminderDesc": "别忘了您的每日练习时间"
+      },
+      "professional": {
+        "trend": "行业趋势",
+        "trendDesc": "您所在领域的AI采用率增长了40%",
+        "skill": "技能发展",
+        "skillDesc": "考虑学习数据可视化工具",
+        "opportunity": "新机会",
+        "opportunityDesc": "3个相关职位空缺符合您的档案"
+      }
+    },
+    "progress": {
+      "title": "学习进度",
+      "nextGoal": "下一个目标",
+      "accuracy": "准确率",
+      "completion": "完成度"
+    },
+    "calendar": {
+      "title": "即将到来的日程"
+    },
+    "viewAll": "查看全部"
+  },
+  "upload": {
+    "title": "上传内容",
+    "tabs": {
+      "file": "文件上传",
+      "video": "视频链接",
+      "web": "网页链接"
+    },
+    "dragDrop": "拖放文件到这里，或点击浏览",
+    "supportedFormats": "支持的格式：PDF、DOCX、PPTX、JPG、PNG、MP4",
+    "videoLinkPlaceholder": "粘贴YouTube、Vimeo或Bilibili链接",
+    "webUrlPlaceholder": "粘贴任何网页URL",
+    "analyze": "分析内容",
+    "uploading": "上传中...",
+    "processing": "处理中..."
+  },
+  "content": {
+    "status": {
+      "completed": "已完成",
+      "processing": "处理中",
+      "failed": "失败",
+      "unknown": "未知"
+    },
+    "type": {
+      "video": "视频",
+      "document": "文档",
+      "web": "网页",
+      "image": "图片"
+    }
+  }
+}
