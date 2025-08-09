@@ -16,3 +16,4 @@ cram-ai/cram-ai/build/
 
 # Root-level large media (keep public demo video under frontend)
 /*.mp4
+cram-ai/cram-ai/public/videos/*.mp4
