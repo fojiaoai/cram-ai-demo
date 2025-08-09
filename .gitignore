@@ -1,0 +1,18 @@
+# OS / Editor
+.DS_Store
+.codebuddy/
+.history/
+
+# Node
+node_modules/
+
+# Env
+.env
+
+# Build outputs
+cram-ai/cram-ai/deploy/
+cram-ai/cram-ai/dist/
+cram-ai/cram-ai/build/
+
+# Root-level large media (keep public demo video under frontend)
+/*.mp4
