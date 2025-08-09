@@ -7,6 +7,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Flag, Lightbulb, ChevronLeft, ChevronRight, Save } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface Question {
   id: number;
@@ -54,6 +55,8 @@ export const QuestionDisplay: React.FC<QuestionDisplayProps> = ({
   canGoPrevious,
   canGoNext
 }) => {
+  const { t } = useTranslation();
+  
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
       case 'easy': return 'text-green-600 border-green-600';
@@ -65,10 +68,10 @@ export const QuestionDisplay: React.FC<QuestionDisplayProps> = ({
 
   const getDifficultyText = (difficulty: string) => {
     switch (difficulty) {
-      case 'easy': return '简单';
-      case 'medium': return '中等';
-      case 'hard': return '困难';
-      default: return '未知';
+      case 'easy': return t('exam.dashboard.labels.easy');
+      case 'medium': return t('exam.dashboard.labels.medium');
+      case 'hard': return t('exam.dashboard.labels.hard');
+      default: return t('common.error');
     }
   };
 
@@ -78,7 +81,7 @@ export const QuestionDisplay: React.FC<QuestionDisplayProps> = ({
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <Badge variant="outline" className="text-sm">
-              题目 {currentIndex + 1} / {totalQuestions}
+              {t('exam.question')} {currentIndex + 1} / {totalQuestions}
             </Badge>
             <Badge 
               variant="outline" 
@@ -87,7 +90,7 @@ export const QuestionDisplay: React.FC<QuestionDisplayProps> = ({
               {getDifficultyText(question.difficulty)}
             </Badge>
             <Badge variant="outline" className="text-sm">
-              {question.points} 分
+              {question.points} {t('exam.dashboard.units.points')}
             </Badge>
             <Badge variant="outline" className="text-sm">
               {question.category}
@@ -173,7 +176,7 @@ export const QuestionDisplay: React.FC<QuestionDisplayProps> = ({
                     <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-green-100 dark:bg-green-900/30 text-sm font-medium mr-3 text-green-700 dark:text-green-300">
                       ✓
                     </span>
-                    正确
+                    {t('common.confirm')}
                   </Label>
                 </div>
                 <div className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
@@ -182,7 +185,7 @@ export const QuestionDisplay: React.FC<QuestionDisplayProps> = ({
                     <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/30 text-sm font-medium mr-3 text-red-700 dark:text-red-300">
                       ✗
                     </span>
-                    错误
+                    {t('common.error')}
                   </Label>
                 </div>
               </RadioGroup>
@@ -191,17 +194,17 @@ export const QuestionDisplay: React.FC<QuestionDisplayProps> = ({
             {question.type === 'essay' && (
               <div className="space-y-2">
                 <Label htmlFor="essay-answer" className="text-base font-medium">
-                  请在下方输入您的答案：
+                  {t('exam.dashboard.improvementSuggestions')}:
                 </Label>
                 <Textarea
                   id="essay-answer"
-                  placeholder="请在此输入您的答案..."
+                  placeholder={t('common.search')}
                   value={userAnswer as string || ''}
                   onChange={(e) => onAnswerChange(e.target.value)}
                   className="min-h-32 resize-none text-base"
                 />
                 <div className="text-sm text-gray-500 text-right">
-                  {(userAnswer as string || '').length} 字符
+                  {(userAnswer as string || '').length} {t('common.loading')}
                 </div>
               </div>
             )}
@@ -212,7 +215,7 @@ export const QuestionDisplay: React.FC<QuestionDisplayProps> = ({
             <div className="mt-6 p-4 rounded-lg border bg-blue-50 border-blue-200 dark:bg-blue-900/20 dark:border-blue-800">
               <h4 className="font-semibold text-blue-700 dark:text-blue-300 mb-2 flex items-center gap-2">
                 <Lightbulb className="h-4 w-4" />
-                解析
+                {t('aiAnalysis.insights.title')}
               </h4>
               <p className="text-sm text-blue-600 dark:text-blue-300 leading-relaxed">
                 {question.explanation}
@@ -230,7 +233,7 @@ export const QuestionDisplay: React.FC<QuestionDisplayProps> = ({
             className="flex items-center gap-2"
           >
             <ChevronLeft className="h-4 w-4" />
-            上一题
+            {t('exam.previous')}
           </Button>
           
           <div className="flex items-center gap-3">
@@ -244,7 +247,7 @@ export const QuestionDisplay: React.FC<QuestionDisplayProps> = ({
               }`}
             >
               <Flag className="h-4 w-4" />
-              {isFlagged ? '取消标记' : '标记'}
+              {isFlagged ? t('common.cancel') : t('common.save')}
             </Button>
             
             {onSave && (
@@ -253,7 +256,7 @@ export const QuestionDisplay: React.FC<QuestionDisplayProps> = ({
                 onClick={onSave}
               >
                 <Save className="h-4 w-4" />
-                保存
+                {t('common.save')}
               </Button>
             )}
           </div>
@@ -263,7 +266,7 @@ export const QuestionDisplay: React.FC<QuestionDisplayProps> = ({
             disabled={!canGoNext}
             className="flex items-center gap-2"
           >
-            下一题
+            {t('exam.next')}
             <ChevronRight className="h-4 w-4" />
           </Button>
         </div>

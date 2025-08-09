@@ -19,15 +19,20 @@ import {
   Sparkles,
   TrendingUp,
   Globe,
-  Star
+  Star,
+  Sun,
+  Moon
 } from 'lucide-react'
 import UploadDemo from '@/components/upload-demo'
 import { LanguageSwitcher } from '@/components/language-switcher'
+import { useTheme } from '@/components/theme-provider'
 
 export default function LandingPage() {
   const { t } = useTranslation()
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)
   const [animatedNumbers, setAnimatedNumbers] = useState({ users: 0, content: 0, insights: 0 })
+  const [billing, setBilling] = useState<'monthly' | 'yearly'>('monthly')
+  const { theme, setTheme } = useTheme()
 
   // Animated counter effect
   useEffect(() => {
@@ -134,16 +139,16 @@ export default function LandingPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-white overflow-hidden">
+    <div className="min-h-screen bg-white dark:bg-gray-950 overflow-hidden">
       {/* Animated Background */}
       <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-white to-purple-50/50" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-white to-purple-50/50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900" />
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-200/20 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
 
       {/* Header Navigation */}
-      <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-xl supports-[backdrop-filter]:bg-white/60">
+      <header className="sticky top-0 z-50 w-full border-b bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-gray-900/60">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <div className="flex items-center space-x-2">
             <div className="relative">
@@ -151,29 +156,31 @@ export default function LandingPage() {
               <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-ping" />
             </div>
             <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent animate-gradient">
-              Cram AI
+              {t('landing.locale') === 'zh' ? '佛脚AI' : 'Cram AI'}
             </span>
-            <Badge variant="secondary" className="ml-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 border-0">
-              佛脚AI
-            </Badge>
+            {/* Removed duplicate badge next to brand to avoid double naming */}
           </div>
           
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-gray-600 hover:text-blue-600 transition-all duration-300 hover:scale-105">{t('landing.features.title')}</a>
-            <a href="#pricing" className="text-gray-600 hover:text-blue-600 transition-all duration-300 hover:scale-105">{t('landing.pricing.title')}</a>
-            <a href="#about" className="text-gray-600 hover:text-blue-600 transition-all duration-300 hover:scale-105">About</a>
+            <a href="#features" className="text-gray-600 hover:text-blue-600 transition-all duration-300 hover:scale-105 dark:text-gray-300">{t('landing.features.title')}</a>
+            <a href="#pricing" className="text-gray-600 hover:text-blue-600 transition-all duration-300 hover:scale-105 dark:text-gray-300">{t('landing.pricing.title')}</a>
+            <a href="#about" className="text-gray-600 hover:text-blue-600 transition-all duration-300 hover:scale-105 dark:text-gray-300">About</a>
           </nav>
 
           <div className="flex items-center space-x-4">
             <LanguageSwitcher />
-            <Link to="/auth">
-              <Button variant="ghost" className="text-gray-600 hover:text-gray-900 hover:bg-gray-100/80 transition-all duration-300">
-                {t('nav.login')}
-              </Button>
-            </Link>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </Button>
             <Link to="/auth">
               <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                {t('landing.hero.cta')}
+                {t('landing.locale') === 'zh' ? '登录立即开始' : 'Sign in now'}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
@@ -190,13 +197,13 @@ export default function LandingPage() {
                 🚀 {t('landing.locale') === 'zh' ? 'AI驱动的内容分析平台' : 'AI-Powered Content Analysis Platform'}
               </Badge>
             
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
               <span className="inline-block animate-fade-in-up delay-100">{t('landing.hero.title')}</span>
               <br />
               <span className="inline-block animate-fade-in-up delay-200 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{t('landing.hero.titleHighlight')}</span>
             </h1>
             
-            <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-300">
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-300">
               {t('landing.hero.subtitle')}
             </p>
           </div>
@@ -284,6 +291,257 @@ export default function LandingPage() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Product Highlights - new, complements existing feature list */}
+      <section id="highlights" className="py-20 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <Badge variant="secondary" className="mb-4 bg-cyan-100 text-cyan-700">
+              <Sparkles className="w-4 h-4 mr-2" />
+              {t('landing.locale') === 'zh' ? '产品亮点' : 'Product Highlights'}
+            </Badge>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              {t('landing.locale') === 'zh' ? '基于真实用例的端到端学习体验' : 'End‑to‑End Learning Experience Built From Real Use'}
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              {t('landing.locale') === 'zh'
+                ? '在保持原有多源分析的基础上，我们进一步打通了导航、国际化与主题体验，并扩展了学习与考试场景。'
+                : 'On top of multi‑source analysis, we unified navigation, i18n and theming, and expanded learning and exam scenarios.'}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Unified analysis flow */}
+            <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 bg-white/80 backdrop-blur-sm">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <Brain className="h-6 w-6 text-blue-600" />
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    {t('landing.locale') === 'zh' ? '统一分析界面' : 'Unified Analysis Interface'}
+                  </h3>
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {t('landing.locale') === 'zh'
+                    ? '支持文件、网页与视频的统一查看与分析，底部内置 Main / Chat / Mindmap / Notes 等标签页。'
+                    : 'Unified viewer and analysis for files, web and video, with built‑in Main / Chat / Mindmap / Notes tabs.'}
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* One‑click autostart */}
+            <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 bg-white/80 backdrop-blur-sm">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <Zap className="h-6 w-6 text-purple-600" />
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    {t('landing.locale') === 'zh' ? '一键直达分析' : 'One‑Click Autostart'}
+                  </h3>
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {t('landing.locale') === 'zh'
+                    ? '从仪表盘或导航搜索输入链接后，自动跳转并跳过上传页，直接进入结果界面。'
+                    : 'From dashboard or navbar search, auto‑start analysis and skip upload, landing directly in results.'}
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Consistent nav + i18n + theme */}
+            <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 bg-white/80 backdrop-blur-sm">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <Globe className="h-6 w-6 text-indigo-600" />
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    {t('landing.locale') === 'zh' ? '统一导航 / 多语言 / 深浅色' : 'Unified Nav / i18n / Light‑Dark'}
+                  </h3>
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {t('landing.locale') === 'zh'
+                    ? '全站复用统一导航栏，提供中文/English切换与主题切换，视觉风格与首页保持一致。'
+                    : 'A shared navbar across all pages with language and theme toggles, visually aligned with the homepage.'}
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Learning flows */}
+            <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 bg-white/80 backdrop-blur-sm">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <Users className="h-6 w-6 text-teal-600" />
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    {t('landing.locale') === 'zh' ? '学习与考试场景' : 'Learning & Exam Flows'}
+                  </h3>
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {t('landing.locale') === 'zh'
+                    ? '新增“我的课程”“探索”“考试”等入口，覆盖从学习到评测的闭环。'
+                    : 'New entries for My Courses, Explore, and Exam to cover the loop from learning to assessment.'}
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Community & Creators */}
+            <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 bg-white/80 backdrop-blur-sm">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <Star className="h-6 w-6 text-yellow-600" />
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    {t('landing.locale') === 'zh' ? '社区与创作者' : 'Community & Creators'}
+                  </h3>
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {t('landing.locale') === 'zh'
+                    ? '沉淀优质内容与学习路线，创作者主页支持展示作品与数据。'
+                    : 'Curate content and learning paths; creator pages showcase works and analytics.'}
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Performance & reliability */}
+            <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 bg-white/80 backdrop-blur-sm">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <TrendingUp className="h-6 w-6 text-green-600" />
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    {t('landing.locale') === 'zh' ? '性能与可靠性' : 'Performance & Reliability'}
+                  </h3>
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {t('landing.locale') === 'zh'
+                    ? '首页/工作台关键模块按需加载并提供骨架屏，离线指示器保障弱网体验。'
+                    : 'Key modules lazy‑loaded with skeletons; offline indicator for resilient UX.'}
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section id="pricing" className="py-20 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <Badge variant="secondary" className="mb-4 bg-indigo-100 text-indigo-700">
+              {t('landing.locale') === 'zh' ? '价格方案' : 'Pricing Plans'}
+            </Badge>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              {t('landing.locale') === 'zh' ? '为个人与团队量身打造' : 'Built for Individuals and Teams'}
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              {t('landing.locale') === 'zh'
+                ? '灵活的计费方式，解锁更强大的AI分析能力。'
+                : 'Flexible billing to unlock more powerful AI analysis.'}
+            </p>
+
+            {/* Billing Toggle */}
+            <div className="mt-6 inline-flex items-center bg-gray-100 rounded-full p-1">
+              <button
+                className={`px-4 py-2 text-sm rounded-full transition-all ${
+                  billing === 'monthly' ? 'bg-white shadow font-semibold' : 'text-gray-600'
+                }`}
+                onClick={() => setBilling('monthly')}
+              >
+                {t('landing.locale') === 'zh' ? '按月' : 'Monthly'}
+              </button>
+              <button
+                className={`px-4 py-2 text-sm rounded-full transition-all ${
+                  billing === 'yearly' ? 'bg-white shadow font-semibold' : 'text-gray-600'
+                }`}
+                onClick={() => setBilling('yearly')}
+              >
+                {t('landing.locale') === 'zh' ? '按年（省20%）' : 'Yearly (Save 20%)'}
+              </button>
+            </div>
+          </div>
+
+          {/* Plans */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Free */}
+            <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  {t('landing.locale') === 'zh' ? '免费版' : 'Free'}
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  {t('landing.locale') === 'zh' ? '入门体验AI分析的最佳选择' : 'Best to get started with AI analysis'}
+                </p>
+                <div className="flex items-baseline gap-2 mb-6">
+                  <span className="text-4xl font-bold">{t('landing.locale') === 'zh' ? '¥0' : '$0'}</span>
+                  <span className="text-gray-500">/{t('landing.locale') === 'zh' ? '月' : 'mo'}</span>
+                </div>
+                <ul className="space-y-3 text-sm text-gray-700 mb-6">
+                  <li>• {t('landing.locale') === 'zh' ? '基础文件/链接/视频分析' : 'Basic file/link/video analysis'}</li>
+                  <li>• {t('landing.locale') === 'zh' ? '单次分析时长 ≤ 10 分钟' : 'Single analysis length ≤ 10 minutes'}</li>
+                  <li>• {t('landing.locale') === 'zh' ? '标准摘要与要点提取' : 'Standard summary and key points'}</li>
+                </ul>
+                <Link to="/auth">
+                  <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+                    {t('landing.locale') === 'zh' ? '立即开始' : 'Get Started'}
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            {/* Pro - highlighted */}
+            <Card className="relative border-0 shadow-2xl ring-2 ring-purple-200">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-xs px-3 py-1 rounded-full shadow">
+                {t('landing.locale') === 'zh' ? '最受欢迎' : 'Most Popular'}
+              </div>
+              <CardContent className="p-8">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  {t('landing.locale') === 'zh' ? '专业版' : 'Pro'}
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  {t('landing.locale') === 'zh' ? '解锁完整分析与更高配额' : 'Unlock full analysis with higher limits'}
+                </p>
+                <div className="flex items-baseline gap-2 mb-6">
+                  <span className="text-4xl font-bold">
+                    {t('landing.locale') === 'zh'
+                      ? (billing === 'monthly' ? '¥59' : '¥472')
+                      : (billing === 'monthly' ? '$9' : '$86')}
+                  </span>
+                  <span className="text-gray-500">/{billing === 'monthly' ? (t('landing.locale') === 'zh' ? '月' : 'mo') : (t('landing.locale') === 'zh' ? '年' : 'yr')}</span>
+                </div>
+                <ul className="space-y-3 text-sm text-gray-700 mb-6">
+                  <li>• {t('landing.locale') === 'zh' ? '高级摘要、要点与行动建议' : 'Advanced summary, key points, actions'}</li>
+                  <li>• {t('landing.locale') === 'zh' ? 'AI 对话与思维导图' : 'AI Chat and Mindmap'}</li>
+                  <li>• {t('landing.locale') === 'zh' ? '单次分析时长 ≤ 60 分钟' : 'Single analysis length ≤ 60 minutes'}</li>
+                  <li>• {t('landing.locale') === 'zh' ? '优先队列与更快速度' : 'Priority queue and faster speed'}</li>
+                </ul>
+                <Link to="/auth">
+                  <Button className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white">
+                    {t('landing.locale') === 'zh' ? '升级到专业版' : 'Upgrade to Pro'}
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            {/* Team/Enterprise */}
+            <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  {t('landing.locale') === 'zh' ? '团队/企业版' : 'Team / Enterprise'}
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  {t('landing.locale') === 'zh' ? '更高配额、私有部署与安全合规' : 'Higher limits, private deploy, security & compliance'}
+                </p>
+                <div className="flex items-baseline gap-2 mb-6">
+                  <span className="text-4xl font-bold">{t('landing.locale') === 'zh' ? '定制' : 'Custom'}</span>
+                </div>
+                <ul className="space-y-3 text-sm text-gray-700 mb-6">
+                  <li>• {t('landing.locale') === 'zh' ? 'SSO/SCIM 与审计日志' : 'SSO/SCIM and audit logs'}</li>
+                  <li>• {t('landing.locale') === 'zh' ? '私有化部署与数据隔离' : 'Private deployment & data isolation'}</li>
+                  <li>• {t('landing.locale') === 'zh' ? '企业级支持与SLA' : 'Enterprise support & SLA'}</li>
+                </ul>
+                <Link to="/auth">
+                  <Button variant="outline" className="w-full">
+                    {t('landing.locale') === 'zh' ? '联系销售' : 'Contact Sales'}
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -462,7 +720,7 @@ export default function LandingPage() {
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <Brain className="h-6 w-6 text-blue-400" />
-                <span className="text-xl font-bold">Cram AI</span>
+                <span className="text-xl font-bold">{t('landing.locale') === 'zh' ? '佛脚AI' : 'Cram AI'}</span>
               </div>
               <p className="text-gray-400 text-sm">
                 {t('landing.hero.subtitle')}
@@ -499,7 +757,7 @@ export default function LandingPage() {
           
           <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              &copy; 2024 Cram AI. All rights reserved.
+              &copy; 2025 Cram AI. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <LanguageSwitcher />

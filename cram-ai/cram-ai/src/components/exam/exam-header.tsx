@@ -4,7 +4,7 @@
  * @Author: Tom Zhou
  * @Date: 2025-08-08 10:47:14
  * @LastEditors: Tom Zhou
- * @LastEditTime: 2025-08-08 10:47:19
+ * @LastEditTime: 2025-08-08 16:13:30
  */
 import React from 'react';
 import { Card } from '@/components/ui/card';
@@ -12,6 +12,7 @@ import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import { Clock, ArrowLeft, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useTranslation } from 'react-i18next';
 
 interface ExamHeaderProps {
   examTitle: string;
@@ -34,6 +35,7 @@ export const ExamHeader: React.FC<ExamHeaderProps> = ({
   onBack,
   onSettings
 }) => {
+  const { t } = useTranslation();
   const progressPercentage = (completedQuestions / totalQuestions) * 100;
 
   return (
@@ -69,10 +71,10 @@ export const ExamHeader: React.FC<ExamHeaderProps> = ({
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-4">
           <span className="text-sm text-gray-600">
-            Question {currentQuestion} of {totalQuestions}
+            {t('exam.question')} {currentQuestion} {t('exam.of')} {totalQuestions}
           </span>
           <span className="text-sm text-gray-600">
-            Completed: {completedQuestions}/{totalQuestions}
+            {t('exam.completed')}: {completedQuestions}/{totalQuestions}
           </span>
         </div>
         <span className="text-sm font-medium text-gray-700">

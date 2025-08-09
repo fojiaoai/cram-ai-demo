@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { TrendingUp, TrendingDown, Clock, Target, BarChart3, PieChart, Activity } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface DashboardMetric {
   label: string;
@@ -41,25 +42,27 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({
   subjectDistribution,
   accuracyByType
 }) => {
+  const { t } = useTranslation();
+  
   const metrics: DashboardMetric[] = [
     {
-      label: '今日刷题',
+      label: t('exam.dashboard.todayQuestions'),
       value: todayQuestions,
-      unit: '道',
+      unit: t('exam.dashboard.units.questions'),
       trend: 'down',
       trendValue: '5%'
     },
     {
-      label: '今日正确率',
+      label: t('exam.dashboard.todayAccuracy'),
       value: accuracyRate,
-      unit: '%',
+      unit: t('exam.dashboard.units.percent'),
       trend: 'up',
       trendValue: '5.2%'
     },
     {
-      label: '刷题平均用时',
+      label: t('exam.dashboard.averageTime'),
       value: averageTime,
-      unit: '秒',
+      unit: t('exam.dashboard.units.seconds'),
       trend: 'up',
       trendValue: '7.2%'
     }
@@ -89,7 +92,7 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({
                 <span className="text-2xl font-bold">{metric.value}</span>
                 {metric.unit && <span className="text-sm text-gray-400">{metric.unit}</span>}
               </div>
-              <div className="text-xs text-gray-400 mt-1">差异率</div>
+              <div className="text-xs text-gray-400 mt-1">{t('exam.dashboard.difficultyDistribution')}</div>
             </CardContent>
           </Card>
         ))}
@@ -99,7 +102,7 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({
       <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 text-white">
         <CardContent className="p-4">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm text-gray-300">今日刷题时间</span>
+            <span className="text-sm text-gray-300">{t('exam.dashboard.timeAnalysis')}</span>
             <div className="flex items-center gap-1 text-xs text-red-400">
               <TrendingDown className="h-3 w-3" />
               <span>5%</span>
@@ -107,9 +110,9 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({
           </div>
           <div className="flex items-baseline gap-1">
             <span className="text-3xl font-bold">{totalTime}</span>
-            <span className="text-sm text-gray-400">分</span>
+            <span className="text-sm text-gray-400">{t('exam.dashboard.units.minutes')}</span>
           </div>
-          <div className="text-xs text-gray-400 mt-1">差异率</div>
+          <div className="text-xs text-gray-400 mt-1">{t('exam.dashboard.difficultyDistribution')}</div>
           {/* Mini chart placeholder */}
           <div className="mt-3 h-8 flex items-end gap-1">
             {[...Array(8)].map((_, i) => (
@@ -128,7 +131,7 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({
         <CardHeader className="pb-3">
           <CardTitle className="text-sm text-gray-300 flex items-center gap-2">
             <PieChart className="h-4 w-4" />
-            今日题型
+            {t('exam.dashboard.subjectBreakdown')}
           </CardTitle>
         </CardHeader>
         <CardContent className="p-4 pt-0">
@@ -182,7 +185,7 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({
         <CardHeader className="pb-3">
           <CardTitle className="text-sm text-gray-300 flex items-center gap-2">
             <BarChart3 className="h-4 w-4" />
-            今日模块
+            {t('exam.dashboard.monthlyStats')}
           </CardTitle>
         </CardHeader>
         <CardContent className="p-4 pt-0">
@@ -218,9 +221,9 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({
       <Card className="bg-gradient-to-br from-blue-900/50 to-purple-900/50 border-blue-700 text-white">
         <CardContent className="p-4">
           <div className="text-center">
-            <div className="text-sm text-blue-300 mb-2">预测分(参考正确率)</div>
+            <div className="text-sm text-blue-300 mb-2">{t('exam.dashboard.performanceAnalysis')}</div>
             <div className="text-3xl font-bold mb-1">61.90</div>
-            <div className="text-sm text-blue-300">分</div>
+            <div className="text-sm text-blue-300">{t('exam.dashboard.units.points')}</div>
           </div>
         </CardContent>
       </Card>
@@ -230,7 +233,7 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({
         <CardHeader className="pb-3">
           <CardTitle className="text-sm text-gray-300 flex items-center gap-2">
             <Activity className="h-4 w-4" />
-            正确率提分指数
+            {t('exam.dashboard.improvementSuggestions')}
           </CardTitle>
         </CardHeader>
         <CardContent className="p-4 pt-0">
@@ -262,7 +265,7 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({
         <CardContent className="p-4 text-center">
           <div className="flex items-center justify-center gap-2 text-sm text-gray-300">
             <TrendingDown className="h-4 w-4 rotate-180" />
-            <span>展开查看更多</span>
+            <span>{t('dashboard.viewAll')}</span>
           </div>
         </CardContent>
       </Card>

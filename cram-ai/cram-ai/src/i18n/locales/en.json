@@ -133,6 +133,11 @@
       "completedProjects": "Completed Projects",
       "thisMonth": "this month"
     },
+    "tabs": {
+      "recentContent": "Recent Content",
+      "aiInsights": "AI Insights",
+      "analytics": "Analytics"
+    },
     "quickActions": {
       "title": "Quick Actions",
       "uploadFile": "Upload File",
@@ -272,10 +277,51 @@
     "timeRemaining": "Time Remaining",
     "question": "Question",
     "of": "of",
+    "completed": "Completed",
+    "progress": "Progress",
+    "submit": "Submit",
     "next": "Next",
     "previous": "Previous",
-    "submit": "Submit",
+    "finish": "Finish Exam",
     "review": "Review",
-    "finish": "Finish Exam"
+    "dashboard": {
+      "title": "Practice Dashboard",
+      "todayQuestions": "Today's Questions",
+      "todayAccuracy": "Today's Accuracy",
+      "averageTime": "Average Time",
+      "totalQuestions": "Total Questions",
+      "correctAnswers": "Correct Answers",
+      "wrongAnswers": "Wrong Answers",
+      "studyStreak": "Study Streak",
+      "weeklyProgress": "Weekly Progress",
+      "monthlyStats": "Monthly Statistics",
+      "performanceAnalysis": "Performance Analysis",
+      "subjectBreakdown": "Subject Breakdown",
+      "difficultyDistribution": "Difficulty Distribution",
+      "timeAnalysis": "Time Analysis",
+      "improvementSuggestions": "Improvement Suggestions",
+      "units": {
+        "questions": "questions",
+        "percent": "%",
+        "seconds": "s",
+        "minutes": "min",
+        "hours": "h",
+        "days": "days",
+        "points": "pts"
+      },
+      "labels": {
+        "easy": "Easy",
+        "medium": "Medium",
+        "hard": "Hard",
+        "mathematics": "Mathematics",
+        "physics": "Physics",
+        "chemistry": "Chemistry",
+        "biology": "Biology",
+        "english": "English",
+        "chinese": "Chinese",
+        "history": "History",
+        "geography": "Geography"
+      }
+    }
   }
 }

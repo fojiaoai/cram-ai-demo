@@ -47,7 +47,8 @@ import {
   Menu,
   X,
   Lightbulb,
-  Award
+  Award,
+  MoreHorizontal
 } from 'lucide-react';
 
 interface StatItem {
@@ -247,7 +248,7 @@ export default function Dashboard() {
     recentContent: [
       {
         id: 1,
-        title: '2024年AI行业发展报告',
+        title: '2025年AI行业发展报告',
         type: 'document' as const,
         progress: 100,
         insights: 28,

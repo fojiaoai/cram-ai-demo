@@ -44,7 +44,7 @@ export default function AnalysisResults() {
     type: 'video',
     source: 'YouTube',
     duration: '12:34',
-    processedAt: '2024-01-15 14:30',
+    processedAt: '2025-01-15 14:30',
     confidence: 94,
     thumbnail: '/placeholder.svg?height=200&width=350',
     
@@ -249,9 +249,9 @@ export default function AnalysisResults() {
       <header className="bg-white/80 backdrop-blur-xl border-b border-gray-200/50 sticky top-0 z-50 shadow-sm">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <Link to="/dashboard" className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors duration-300 group">
+            <Link to="/" className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors duration-300 group">
               <ArrowLeft className="h-5 w-5 group-hover:-translate-x-1 transition-transform duration-300" />
-              <span>返回工作台</span>
+              <span>返回首页</span>
             </Link>
             
             <div className="h-6 w-px bg-gray-300" />

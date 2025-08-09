@@ -15,6 +15,8 @@ import { DashboardSkeleton, InsightCardSkeleton, StatsCardSkeleton, QuickActionS
 import { ErrorBoundary } from '@/components/ui/error-boundary';
 import { useOnlineStatus } from '@/hooks/use-online-status';
 import { LoadingSpinner } from '@/components/ui/loading-spinner';
+import NavigationBar from '@/components/navigation-bar';
+import { useTheme } from '@/components/theme-provider';
 
 // Lazy load heavy components
 const UploadDemo = React.lazy(() => import('@/components/upload-demo'));
@@ -83,15 +85,10 @@ export default function DashboardOptimized() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const isOnline = useOnlineStatus();
+  const { theme } = useTheme();
+  const isDarkMode = theme === 'dark';
   
-  // State management with better performance
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('theme') === 'dark';
-    }
-    return false;
-  });
-  
+  // State management
   const [userType, setUserType] = useState<'student' | 'professional'>(() => {
     if (typeof window !== 'undefined') {
       return (localStorage.getItem('userType') as 'student' | 'professional') || 'student';
@@ -114,12 +111,6 @@ export default function DashboardOptimized() {
     }, 1500);
     return () => clearTimeout(timer);
   }, []);
-
-  // Persist theme and user type with better performance
-  useEffect(() => {
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-    document.documentElement.classList.toggle('dark', isDarkMode);
-  }, [isDarkMode]);
 
   useEffect(() => {
     localStorage.setItem('userType', userType);
@@ -259,7 +250,7 @@ export default function DashboardOptimized() {
     recentContent: [
       {
         id: 1,
-        title: '2024年AI行业发展报告',
+        title: '2025年AI行业发展报告',
         type: 'document' as const,
         progress: 100,
         insights: 28,
@@ -326,7 +317,7 @@ export default function DashboardOptimized() {
       icon: Upload,
       color: 'from-blue-500 to-cyan-500',
       action: () => handleQuickAction('upload', () => {
-        console.log('Upload file action');
+        navigate('/unified-analysis?autostart=1&type=url')
       })
     },
     {
@@ -335,7 +326,7 @@ export default function DashboardOptimized() {
       icon: Video,
       color: 'from-red-500 to-pink-500',
       action: () => handleQuickAction('video', () => {
-        console.log('Analyze video action');
+        navigate('/unified-analysis?autostart=1&type=video')
       })
     },
     {
@@ -344,7 +335,7 @@ export default function DashboardOptimized() {
       icon: Globe,
       color: 'from-green-500 to-emerald-500',
       action: () => handleQuickAction('web', () => {
-        console.log('Web content action');
+        navigate('/unified-analysis?autostart=1&type=url')
       })
     },
     {
@@ -368,7 +359,7 @@ export default function DashboardOptimized() {
 
   // Optimized event handlers
   const handleThemeToggle = useCallback(() => {
-    setIsDarkMode(prev => !prev);
+    // This function is no longer needed as theme is managed by useTheme
   }, []);
 
   const handleUserTypeChange = useCallback((type: 'student' | 'professional') => {
@@ -424,172 +415,8 @@ export default function DashboardOptimized() {
           }`} />
         </div>
 
-        {/* Header */}
-        <header className={`sticky top-0 z-50 border-b backdrop-blur-xl transition-all duration-300 ${
-          isDarkMode 
-            ? 'bg-gray-800/80 border-gray-700/50' 
-            : 'bg-white/80 border-gray-200/50'
-        }`}>
-          <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-            {/* Logo */}
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2">
-                <div className="relative">
-                  <Brain className="h-8 w-8 text-blue-600 transition-transform duration-300 hover:scale-110" />
-                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-ping" />
-                </div>
-                <span className="text-xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
-                  {t('common.appName')}
-                </span>
-                <Badge className="ml-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 border-0 dark:from-blue-900/30 dark:to-purple-900/30 dark:text-blue-300">
-                  佛脚AI
-                </Badge>
-              </div>
-            </div>
-
-            {/* Navigation Menu - Desktop */}
-            <nav className="hidden lg:flex items-center space-x-8">
-              <Button
-                variant="ghost"
-                className="text-base font-medium hover:text-blue-600 transition-colors duration-200"
-                onClick={() => navigate('/dashboard')}
-              >
-                Home
-              </Button>
-              <Button
-                variant="ghost"
-                className="text-base font-medium hover:text-blue-600 transition-colors duration-200"
-                onClick={() => navigate('/my-courses')}
-              >
-                My Courses
-              </Button>
-              <Button
-                variant="ghost"
-                className="text-base font-medium hover:text-blue-600 transition-colors duration-200"
-                onClick={() => navigate('/exam-interface')}
-              >
-                Exam
-              </Button>
-              <Button
-                variant="ghost"
-                className="text-base font-medium hover:text-blue-600 transition-colors duration-200"
-                onClick={() => navigate('/explore')}
-              >
-                Explore
-              </Button>
-            </nav>
-
-            {/* Search and Actions */}
-            <div className="flex items-center space-x-4">
-              {/* Search - Desktop */}
-              <div className="relative hidden md:block">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-                <Input
-                  type="text"
-                  placeholder={t('dashboard.searchPlaceholder')}
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className={`pl-10 w-64 h-10 transition-all duration-300 focus:w-72 ${
-                    isDarkMode 
-                      ? 'bg-gray-700/50 border-gray-600 text-white placeholder-gray-400' 
-                      : 'bg-white/80 border-gray-200 text-gray-900 placeholder-gray-500'
-                  }`}
-                  aria-label="Search content"
-                />
-              </div>
-              
-              <LanguageSwitcher />
-              
-              <Button 
-                variant="ghost" 
-                size="sm" 
-                onClick={handleThemeToggle}
-                className="hover:bg-blue-50 dark:hover:bg-gray-700 transition-all duration-200 hover:scale-110"
-                aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-              >
-                {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-              </Button>
-              
-              <Button 
-                variant="ghost" 
-                size="sm" 
-                className="relative hover:bg-blue-50 dark:hover:bg-gray-700 transition-all duration-200 hover:scale-110"
-                onClick={handleNotificationClick}
-                aria-label={`${notifications} notifications`}
-              >
-                <Bell className="h-5 w-5" />
-                {notifications > 0 && (
-                  <div className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center animate-pulse">
-                    {notifications}
-                  </div>
-                )}
-              </Button>
-              
-              <Button 
-                variant="ghost" 
-                size="sm" 
-                className="hover:bg-blue-50 dark:hover:bg-gray-700 transition-all duration-200 hover:scale-110"
-                aria-label="User profile"
-              >
-                <User className="h-5 w-5" />
-              </Button>
-
-              {/* Mobile Menu Button */}
-              <Button
-                variant="ghost"
-                size="sm"
-                className="md:hidden"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                aria-label="Toggle mobile menu"
-              >
-                {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              </Button>
-            </div>
-          </div>
-
-          {/* Mobile Menu */}
-          {mobileMenuOpen && (
-            <div className={`lg:hidden border-t transition-all duration-300 ${
-              isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'
-            }`}>
-              <div className="p-4 space-y-4">
-                {/* Mobile Search */}
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-                  <Input
-                    type="text"
-                    placeholder={t('dashboard.searchPlaceholder')}
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-10 w-full"
-                  />
-                </div>
-
-                {/* Mobile User Type Switcher */}
-                <div className="flex space-x-2 pt-4 border-t border-gray-200 dark:border-gray-700">
-                  <Button
-                    variant={userType === 'student' ? 'default' : 'outline'}
-                    size="sm"
-                    onClick={() => handleUserTypeChange('student')}
-                    className="flex-1 flex items-center gap-2"
-                  >
-                    <GraduationCap className="w-4 h-4" />
-                    {t('dashboard.userType.student')}
-                  </Button>
-                  <Button
-                    variant={userType === 'professional' ? 'default' : 'outline'}
-                    size="sm"
-                    onClick={() => handleUserTypeChange('professional')}
-                    className="flex-1 flex items-center gap-2"
-                  >
-                    <Briefcase className="w-4 h-4" />
-                    {t('dashboard.userType.professional')}
-                  </Button>
-                </div>
-              </div>
-            </div>
-          )}
-        </header>
+        {/* Unified Navigation Bar */}
+        <NavigationBar />
 
         <div className="container mx-auto px-4 py-8">
           {/* Welcome Section */}

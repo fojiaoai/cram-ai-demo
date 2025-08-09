@@ -26,11 +26,13 @@ const ExamInterface = React.lazy(() => import('./pages/exam-interface'));
 const AnalysisResults = React.lazy(() => import('./pages/analysis-results'));
 const Community = React.lazy(() => import('./pages/community'));
 const Creators = React.lazy(() => import('./pages/creators'));
+const MyCourses = React.lazy(() => import('./pages/my-courses'));
+const Explore = React.lazy(() => import('./pages/explore'));
 
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+      <ThemeProvider attribute="class" defaultTheme="system" storageKey="vite-ui-theme">
         <div className="min-h-screen bg-background font-sans antialiased">
           <OfflineIndicator />
           <Suspense fallback={<FullPageLoader text="Loading application..." />}>
@@ -38,6 +40,8 @@ function App() {
               <Route path="/" element={<LandingPage />} />
               <Route path="/auth" element={<AuthPage />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/my-courses" element={<MyCourses />} />
+              <Route path="/explore" element={<Explore />} />
               <Route path="/question-bank" element={<QuestionBank />} />
               <Route path="/ai-analysis" element={<AIAnalysisInterface />} />
               <Route path="/unified-analysis" element={<UnifiedAnalysisInterface />} />
